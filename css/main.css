@@ -1,0 +1,389 @@
+/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   GARETH53
+   ========================================================================== */
+/* body */
+body {
+  background-color:#fff;
+  font-family: "Droid Serif", "Georgia", serif
+}
+a:link,
+a:visited {
+  color:#d14545;
+}
+a:hover,
+a:focus {
+  color:#fff;
+  background-color:#d14545;
+}
+a:active {
+  color:#fff;
+  background-color:#d1d145;
+}
+.content {
+  padding-bottom: 5em;
+  background: #4A4A4A;
+  color:#fff;
+  line-height:2;
+  font-size:1.5em;
+}
+article {
+  padding:7em 20px;
+  margin-bottom:20em
+}
+
+/* skip links */
+#skip_links {
+  overflow:visible;
+  list-style: none;
+  margin:0;
+  padding:0;
+}
+#skip_links a {
+  position:absolute;
+  left:-9999em;
+  top:0;
+}
+
+/* HEADER */
+nav {
+  background-image: url('../img/gs_logo.png');
+  overflow: hidden;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  border: 10px solid #fff;
+  border-width: 20px 0;
+}
+.header {
+  background: #fff;
+  width:100%;
+  position:fixed;
+  top:0;
+  left:0
+}
+header {
+  max-width:1018px;
+  margin:0 auto
+}
+.main-nav {
+  float:right;
+  margin:0;
+  padding:0
+}
+.main-nav li {
+    border-left:1px solid #999;
+    display: inline-block;
+}
+.main-nav :first-child {
+    border:none
+}
+.main-nav a {
+  background-color:#fff;
+  color:#666;
+  text-decoration:none;
+  padding:.5em;
+  display: inline-block;
+  -webkit-transition: color .5s, background-color .5s;
+  transition: color .5s, background-color .5s;
+}
+.main-nav a:hover,
+.main-nav a:focus {
+    background:#4d4d4d;
+    color:#eee;
+}
+@media (max-width: 780px) {
+  a#skip_links__nav {
+    position: absolute;
+    text-indent: -9999em;
+    top: auto;
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: #fff;
+    left: auto;
+    top: 50%;
+    z-index: 10000;
+    right: 2%;
+    margin-top: -40px;
+    color: #f00;
+    border: 3px solid #333;
+    border-radius: 25%;
+  }
+  a#skip_links__nav:before,
+  a#skip_links__nav:after {
+    content: " ";
+    position: absolute;
+    top: 20%;
+    left: 18%;
+    border-style: solid;
+    border-color: #d14545;
+    width: 66%;
+    z-index: 99;
+  }
+  a#skip_links__nav:before {
+    border-width: 10px 0;
+    height:11%;
+    top:auto;
+    bottom:20%;
+  }
+  a#skip_links__nav:after {
+    border-width: 10px 0 0 0;
+  }
+  .open a#skip_links__nav:before,
+  .open a#skip_links__nav:after {
+      border-width: 10px 0 0 0;
+      top:45%;
+      transform: rotate(45deg);
+      height:0
+  }
+  .open a#skip_links__nav:after {
+      transform: rotate(-45deg);
+  }
+
+  nav {
+    min-height:100px;
+    background-position-x: 20px
+  }
+  .main-nav {
+    position:absolute;
+    left:100%;
+    border-top:1px solid #999;
+    top:100%;
+    width:100%;
+    float:none;
+    transition: left .25s;
+  }
+  .open .main-nav {
+    left:0;
+  }
+  .main-nav li {
+      border-width:0px;
+      border-top:1px solid #999;
+      display: block;
+      text-align:center;
+  }
+  .main-nav a {
+    width: 100%;
+  }
+}
+
+
+/* BODY */
+
+main {
+  max-width:1018px;
+  margin:0 auto;
+}
+label {
+  display:block;
+}
+.btn-submit {
+    padding: .5em 1em;
+    color: #fff;
+    background-color:#d14545;
+    border:0;
+}
+input, textarea {
+  background:#fff;
+  color:#000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 1.25dppx),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after,
+    *:first-letter,
+    *:first-line {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
