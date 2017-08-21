@@ -1,0 +1,75 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      	<meta id="author" content="Gareth Senior">
+        <title>Gareth Senior: Homepage &amp; CV</title>
+        <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold">
+        <base href="http://gareth53.co.uk">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="header">
+          <header>
+            <ul id="skip_links">
+                <li><a id="skip_links__nav" href="#nav">skip to nav</a></li>
+                <li><a id="skip_links__content" href="#content">skip to content</a></li>
+            </ul>
+            <nav id="nav">
+              <ul class="main-nav">
+                <li><a href="http://gareth53.co.uk/#home">Home</a>
+                <li><a href="http://gareth53.co.uk/#about-me">About Me</a>
+                <li><a href="http://gareth53.co.uk/#technical-skills">Technical Skills</a>
+                <li><a href="http://gareth53.co.uk/#work-history">Work History</a>
+                <li><a href="http://gareth53.co.uk/#links">Links</a>
+                <li><a href="http://gareth53.co.uk/#contact-me">Contact Me</a>
+              </ul>
+            </nav>
+          </header>
+        </div>
+
+        <div class="content">
+          <main id="content">
+
+            <article class="screen" id="home">
+              <h1>Error</h1>
+              <p>Uh-oh! Something bad happened.</p>
+              <p>Probably some content that used to exist has ceased to do so. Ah well, that's the cycle of life.</p>
+              <p>Now, move on with your life. Or <a href="http://gareth53.co.uk/#contact-me">email me</a> with a polite missive.</p>
+            </article>
+
+          </main>
+        </div>
+
+
+
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-527902-3','auto');ga('send','pageview');
+
+            /* NAVIGATION */
+            $(document).ready(function() {
+                $('#skip_links__nav').click(function() {
+                  $('header').toggleClass('open');
+                });
+                $('.main-nav').click(function() {
+                  $('header').removeClass('open');
+                });
+            });
+        </script>
+    </body>
+</html>
