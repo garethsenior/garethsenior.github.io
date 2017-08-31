@@ -123,6 +123,9 @@ article {
   padding:5em 20px 0;
   margin-bottom:20em
 }
+article img {
+  max-width: 100%;
+}
 
 /* skip links */
 #skip_links {
