@@ -120,7 +120,7 @@ a:active {
   font-size:1.5em;
 }
 article {
-  padding:7em 20px;
+  padding:5em 20px 0;
   margin-bottom:20em
 }
 
@@ -183,6 +183,13 @@ header {
     background:#4d4d4d;
     color:#eee;
 }
+.main-nav a.up,
+.main-nav a.up:hover,
+.main-nav a.up:focus {
+    background:#d14545;
+    color:#eee;
+}
+
 @media (max-width: 780px) {
   a#skip_links__nav {
     position: absolute;
