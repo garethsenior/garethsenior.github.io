@@ -114,8 +114,8 @@ a:active {
 }
 .content {
   padding-bottom: 5em;
-  background: #4A4A4A;
-  color:#fff;
+  background: #dfdfdf;
+  color:#666;
   line-height:2;
   font-size:1.5em;
 }
@@ -142,10 +142,7 @@ article img {
 
 /* HEADER */
 nav {
-  background-image: url('../img/gs_logo.png');
   overflow: hidden;
-  background-size: auto 100%;
-  background-repeat: no-repeat;
   border: 10px solid #fff;
   border-width: 20px 0;
 }
@@ -154,11 +151,35 @@ nav {
   width:100%;
   position:fixed;
   top:0;
-  left:0
+  left:0;
+  box-shadow: 0 0px 40px #666;
 }
 header {
   max-width:1018px;
   margin:0 auto
+}
+p#logo {
+    position: absolute;
+    background-image: url(../img/gs_logo.png);
+    height: 75%;
+    min-width: 200px;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    z-index: 20;
+    float: left;
+    margin: .66em 0;
+}
+p#logo a:link, 
+p#logo a:visited, 
+p#logo a:hover, 
+p#logo a:active {
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    text-decoration:none;
+    background-color: transparent;
 }
 .main-nav {
   float:right;
@@ -245,6 +266,9 @@ header {
   nav {
     min-height:100px;
     background-position-x: 20px
+  }
+  p#logo {
+    margin: 1em 0 0 1em;
   }
   .main-nav {
     position:absolute;
