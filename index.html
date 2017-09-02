@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
       	<meta id="author" content="Gareth Senior">
-        <title>Gareth Senior: A Man Since 1974</title>
+        <title>Gareth Senior: Curriculum Vitae</title>
         <meta name="description" id="description" content="Gareth Senior: Homepage and CV">
         <meta name="keywords" id="keywords" content="gareth, senior, developer, javascript, python, technical, frontend, fullstack, engineer, resume, curriculum, vitae, portfolio">
         <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -43,32 +43,21 @@
 
             <article class="screen" id="home">
               <h1>Hi!, I'm Gareth Senior</h1>
-              <img src="img/gareth_walker.jpg">
+              <picture>
+                <source media="(max-width: 777px)" srcset="img/gareth_walker_small.jpg">
+                <source media="(min-width: 777px)" srcset="img/gareth_walker.jpg">
+                <img src="img/gareth_walker.jpg" alt="Walking my dog in the Lake District">
+              </picture>
               <p>Northerner, Developer, Pythonista, Dog Walker, Gentleman, Runner, Optimist and Aspiring Good Egg</p>
             </article>
 
-            <!--article class="screen" id="to-dos">
-              <h2>TODOS</h2>
-              <ul>
-                <li><strikethrough>form</strikethrough>
-                <li><strikethrough>small screen navigation</strikethrough>
-                <li><strikethrough>main navigation rollovers</strikethrough>
-                <li><strikethrough>link colors</strikethrough>
-                  <li><strikethrough>auto min-height the articles with JS</strikethrough>
-                  <li><strikethrough>upstate the navigation elements with JS</strikethrough>
-                <li>link logo
-                <li>DOWNLOADABLE CV
-                <li>BETTER IMAGE RATIONS FOR SMALLER DEVICES
-                <li>ADAPTIVE IMAGES
-                <li>favicon
-                <li><strikethrough>apple icon</strikethrough>
-              </ul>
-            </article-->
-
-
             <article class="screen" id="about-me">
               <h2>About Me</h2>
-              <img src="img/gareth_running.jpg">
+              <picture>
+                <source media="(max-width: 777px)" srcset="img/gareth_running_small.jpg">
+                <source media="(min-width: 777px)" srcset="img/gareth_running.jpg">
+                <img src="img/gareth_running.jpg" alt="Me, running. I like to run.">
+              </picture>
               <p>
                 I was born in the Yorkshire town of <a href="https://en.wikipedia.org/wiki/Holmfirth">Holmfirth</a>, a place most famous for BBC sitcom <em>Last Of The Summer Wine</em> - I am adept at riding down a hill in a bathtub.
               </p>
@@ -82,7 +71,11 @@
 
             <article class="screen" id="technical-skills">
               <h2>Skillset</h2>
-              <img src="img/gareth_laptop.jpg">
+              <picture>
+                <source media="(max-width: 777px)" srcset="img/gareth_laptop_small.jpg">
+                <source media="(min-width: 777px)" srcset="img/gareth_laptop.jpg">
+                <img src="img/gareth_laptop.jpg" alt="Shiny MacBook Pro running PyCharm IDE">
+              </picture>
               <p>
                 I'm from a design and front-end background and have worked with <abbr title="Hypertext Markup Language">HTML</abbr>, JavaScript and <abbr title="Cascading Stylesheets">CSS</abbr> since 2000. For a few years I built a lot of games in Macromedia Flash with ActionScript.
               </p>
@@ -104,10 +97,13 @@
                 <li><abbr title="Test Driven Development">TDD</abbr></li>
                 <li>Microservices</li>
                 <li>MySQL</li>
+                <li>Amazon Web Services</li>
+                <li>Team management, mentoring and coaching</li>
                 <li>HTML and CSS</li>
                 <li>JavaScript</li>
                 <li>Agile Methodologies</li>
                 <li>Go Lang</li>
+                <li>User experience</li>
               </ul>
 
             </article>
@@ -115,7 +111,12 @@
 
             <article class="screen" id="work-history">
               <h2>Work History</h2>
-              <img src="img/work_logos.png">
+              <picture>
+                <source media="(max-width: 777px)" srcset="img/work_logos_small.png">
+                <source media="(min-width: 777px)" srcset="img/work_logos.png">
+                <img src="img/work_logos.png" alt="Logos: Ocado, GLobal Radio, Sainsbury's, GCap Media, BBC Worldwide">
+              </picture>
+
               <h3>
                 May 2017 - Present: Cloud Services Engineer, Ocado Technology
               </h3>
@@ -185,7 +186,7 @@
             </article>
 
             <article class="screen" id="links">
-              <h2>Elsewhere on the internets...</h2>
+              <h2>Links</h2>
               <p>
                 To save you the hassle of Googling my name in order to satisfy your insatiable thirst for more information about me, here's everything you need to know.
                 </p>
@@ -208,7 +209,7 @@
 
             <article class="screen" id="contact-me">
               <h2>Contact Me</h2>
-              <p>Fill in the form. Only use language you'd be comfortable airing at a family gathering, thanks!</p>
+              <p>Fill in the form. Only use language you'd be comfortable hearing at a family gathering, thanks!</p>
               <form action="https://formspree.io/gareth53@gmail.com" method="post">
                 <input type="hidden" name="_next" value="http://gareth53.co.uk" />
                 <input type="hidden" name="_subject" value="Message from garethsenior.github.io" />
@@ -260,32 +261,34 @@
 
             /* SECTIONS */
             // resize the articles to be equal to the height of device/window - whichever is greatest number
-            $(document).ready(function() {
+            var article_resize = function() {
                 var h = Math.max(screen.height, window.innerHeight);
-                $('article.screen').attr('css', 'height:'+h+'px;')
-            });
-
+                $('article.screen').attr('css', 'height:'+(h*1.4)+'px;')
+            }
             // onscroll figure out which article is in view and add a class of "up" to the relevant nav link
             $(document).ready(function() {
-                window.addEventListener('scroll', function() {
-                    var view_top = window.pageYOffset;
-                    var view_bottom = view_top + window.innerHeight;
-                    var pre_view = ['home'];
-                    var in_view = [];
-                    $('article.screen').each(function() {
-                        var a = $(this);
-                        var tag = a.attr('id');
-                        var top = a.offset()['top'];
-                        if (top < view_top) { pre_view.push(tag); }
-                        if ((top > view_top) &&  (top < view_bottom)) { in_view.push(tag); }
-                    });
-                    console.log(in_view, pre_view)
-                    var curr_tag = in_view[0] || pre_view.pop();
-                    $('nav#nav a.up').removeClass('up');
-                    $('nav#nav a[href="#' + curr_tag + '"]').addClass('up');
-                });
+                article_resize();
+                window.addEventListener('scroll', nav_adjust);
+                window.addEventListener('resize', article_resize);
+                nav_adjust();
             });
 
+            var nav_adjust = function() {
+                var view_top = window.pageYOffset;
+                var view_bottom = view_top + window.innerHeight;
+                var pre_view = [];
+                var in_view = [];
+                $('article.screen').each(function() {
+                    var a = $(this);
+                    var tag = a.attr('id');
+                    var top = a.offset()['top'];
+                    if (top < view_top) { pre_view.push(tag); }
+                    if ((top >= view_top) &&  (top < view_bottom)) { in_view.push(tag); }
+                });
+                var curr_tag = in_view[0] || pre_view.pop();
+                $('nav#nav a.up').removeClass('up');
+                $('nav#nav a[href="#' + curr_tag + '"]').addClass('up');
+            }
         </script>
     </body>
 </html>

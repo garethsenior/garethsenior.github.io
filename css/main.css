@@ -78,6 +78,7 @@ fieldset {
 
 textarea {
     resize: vertical;
+    max-width:100%;
 }
 
 /* ==========================================================================
@@ -116,12 +117,14 @@ a:active {
   padding-bottom: 5em;
   background: #dfdfdf;
   color:#666;
-  line-height:2;
   font-size:1.5em;
+}
+.content p,
+.content ul {
+    line-height:1.5;
 }
 article {
   padding:5em 20px 0;
-  margin-bottom:20em
 }
 article img {
   max-width: 100%;
