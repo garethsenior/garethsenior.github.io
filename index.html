@@ -257,35 +257,30 @@
                 $('.main-nav').click(function() {
                   $('header').removeClass('open');
                 });
-            });
-
-            /* SECTIONS */
-            // resize the articles to be equal to the height of device/window - whichever is greatest number
-            var article_resize = function() {
-                var h = Math.max(screen.height, window.innerHeight);
-                $('article.screen').attr('css', 'height:'+(h*1.4)+'px;')
-            }
-            // onscroll figure out which article is in view and add a class of "up" to the relevant nav link
-            $(document).ready(function() {
                 article_resize();
                 window.addEventListener('scroll', nav_adjust);
                 window.addEventListener('resize', article_resize);
                 nav_adjust();
             });
 
+            // resize the articles to be equal to the height of device/window - whichever is greatest number
+            var article_resize = function() {
+                var h = Math.max(screen.height, window.innerHeight);
+                $('article.screen').attr('css', 'height:'+(h*1.4)+'px;')
+            }
+            // onscroll figure out which article is in view and add a class of "up" to the relevant nav link
             var nav_adjust = function() {
                 var view_top = window.pageYOffset;
-                var view_bottom = view_top + window.innerHeight;
-                var pre_view = [];
-                var in_view = [];
+                var min_distance = null;
+                var curr_tag = "home";
                 $('article.screen').each(function() {
                     var a = $(this);
-                    var tag = a.attr('id');
-                    var top = a.offset()['top'];
-                    if (top < view_top) { pre_view.push(tag); }
-                    if ((top >= view_top) &&  (top < view_bottom)) { in_view.push(tag); }
+                    var dist = Math.abs((view_top - a.offset()['top']))
+                    if ((min_distance == null) || (dist < min_distance)) {
+                      curr_tag = a.attr('id');
+                      min_distance = dist;
+                    }
                 });
-                var curr_tag = in_view[0] || pre_view.pop();
                 $('nav#nav a.up').removeClass('up');
                 $('nav#nav a[href="#' + curr_tag + '"]').addClass('up');
             }
