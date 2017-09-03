@@ -99,7 +99,8 @@
                 <li>MySQL</li>
                 <li>Amazon Web Services</li>
                 <li>Team management, mentoring and coaching</li>
-                <li>HTML and CSS</li>
+                <li>HTML, CSS, SASS</li>
+                <li>Django</li>
                 <li>JavaScript</li>
                 <li>Agile Methodologies</li>
                 <li>Go Lang</li>
@@ -117,19 +118,19 @@
                 <img src="img/work_logos.png" alt="Logos: Ocado, GLobal Radio, Sainsbury's, GCap Media, BBC Worldwide">
               </picture>
 
+              <div class="job">
               <h3>
-                May 2017 - Present: Cloud Services Engineer, Ocado Technology
+                May 2017 - Present<br />Cloud Services Engineer<br /><a href="http://ocadotechnology.com/">Ocado Technology</a>
               </h3>
 
               <p>
                 Working with small devops team managing <abbr title="Amazon Web Services">AWS</abbr> infrastructure for Ocado's next generation software including Morrison's online store and delivery systems.
               </p>
-              <p>
-                <a href="http://ocadotechnology.com/">OcadoTechnology.com</a>
-              </p>
+              </div>
+              <div class="job">
 
               <h3>
-                Feb 2016 - May 2017: Lead Software Developer, Sainsbury's
+                Feb 2016 - May 2017<br />Lead Software Developer<br /><a href="https://www.about.sainsburys.co.uk/">Sainsbury's</a>
               </h3>
 
               <p>
@@ -141,9 +142,8 @@
                 <li>A personalisation system to generate offers and incentives for customers based on their buying habits. Microservices written in Python and Go, deployed on AWS using Docker and Kubernetes
               </ul>
 
-              <p>
-                <a href="https://www.about.sainsburys.co.uk/">Sainsburys.co.uk</a>
-              </p>
+              </div>
+              <div class="job">
 
               <h3>
                 Jun 2011 - Feb 2016: Technical Lead, Global Radio
@@ -151,38 +151,32 @@
               <p>
                 Managed a team of developers. Technical Lead for front-end development, focusing on: content managed radio-sites, online radio players, mobile apps.
               </p>
-
+              </div>
+              <div class="job">
               <h3>
-                Aug 2007 - Jun 2011: Software Developer, Global Radio
+                Aug 2007 - Jun 2011<br />Software Developer<br /><a href="http://www.global.com/">Global Radio</a>
               </h3>
               <p>
                 Agile web development with Python, Django, MySQL &amp; ElasticSearch. Part of a small team that manages websites for major radio brands: XFM, <a href="http://www.radiox.co.uk">Radio X</a>, <a href="http://www.classicfm.co.uk">Classic FM</a>, <a href="http://www.capitalfm.com">Capital FM</a>, <a href="http://www.capitalxtra.com">Capital XTRA</a>, <a href="http://www.smoothradio.com">Smooth Radio</a>, <a href="http://www.bigtop40.com">Big Top 40</a> and <a href="http://www.heart.co.uk">Heart</a>.
               </p>
-              <p>
-                <a href="http://www.global.com/">Global.com</a>
-              </p>
 
-
+              </div>
+              <div class="job">
               <h3>
-                Apr 2006 – Aug 2007: Senior Web Developer, BBC Worldwide
+                Apr 2006 – Aug 2007<br />Senior Web Developer<br /><a href="https://www.bbcworldwide.com/">BBC Worldwide</a>
               </h3>
               <p>
                 Senior Developer / Technical Project Manager developing content sites for magazine brands: <a href="http://www.topgear.com">TopGear.com</a>, <a href="http://www.radiotimes.com">RadioTimes.com</a>, <a href="http://www.BBCGoodFood.com">BBCGoodFood.com</a>, <a href="http://www.gardenersworld.com">GardenersWorld.com</a> and BBC Girl Talk.
               </p>
-              <p>
-                <a href="https://www.bbcworldwide.com/">BBCWorldwide.com</a>
-              </p>
-
+              </div>
+              <div class="job">
               <h3>
-                Feb 2000 – Apr 2006: Web Designer/Developer, GCap Media plc
+                Feb 2000 – Apr 2006:<br />Web Designer/Developer<br /><a href="https://en.wikipedia.org/wiki/GCap_Media">GCap Media plc</a>
               </h3>
               <p>
                 Front-end development for an in-house CMS. Design and build of short-term tactical marketing sites for major events and commercial clients. Online games in Flash/Actionscript and Shockwave/Lingo. Brand design and creative direction.
               </p>
-              <p>
-              <a href="https://en.wikipedia.org/wiki/GCap_Media">More about GCap Media on Wikipedia</a>.
-              </p>
-
+              </div>
             </article>
 
             <article class="screen" id="links">
@@ -266,6 +260,7 @@
             // resize the articles to be equal to the height of device/window - whichever is greatest number
             var article_resize = function() {
                 var h = Math.max(screen.height, window.innerHeight);
+                console.log(h)
                 $('article.screen').attr('css', 'height:'+(h*1.4)+'px;')
             }
             // onscroll figure out which article is in view and add a class of "up" to the relevant nav link

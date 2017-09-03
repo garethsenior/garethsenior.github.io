@@ -123,6 +123,28 @@ a:active {
 .content ul {
     line-height:1.5;
 }
+.content ul {
+    padding-left: 1em;
+    list-style: square;
+}
+div.job {
+  border-bottom:1px solid #666;
+  padding: 2em 0;
+  position:relative;
+}
+div.job:after {
+  position: absolute;
+  display: block;
+  content: " ";
+  left:50%;
+  top:100%;
+  margin:-6px 0 0 -6px;
+  border:1px solid #666;
+  background: #dfdfdf; 
+  border-radius:50%;
+  width:12px;
+  height:12px;
+}
 article {
   padding:5em 20px 0;
 }
@@ -153,6 +175,7 @@ nav {
   background: #fff;
   width:100%;
   position:fixed;
+  z-index:2000;
   top:0;
   left:0;
   box-shadow: 0 0px 40px #666;
@@ -223,17 +246,17 @@ p#logo a:active {
     text-indent: -9999em;
     top: auto;
     display: block;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     background: #fff;
     left: auto;
     top: 50%;
     z-index: 10000;
-    right: 2%;
-    margin-top: -40px;
+    right: 4%;
+    margin-top: -30px;
     color: #f00;
-    border: 3px solid #333;
-    border-radius: 25%;
+    border: 2px solid #333;
+    border-radius: 20%;
   }
   a#skip_links__nav:before,
   a#skip_links__nav:after {
@@ -247,18 +270,18 @@ p#logo a:active {
     z-index: 99;
   }
   a#skip_links__nav:before {
-    border-width: 10px 0;
-    height:11%;
+    border-width: 6px 0;
+    height:15%;
     top:auto;
     bottom:20%;
   }
   a#skip_links__nav:after {
-    border-width: 10px 0 0 0;
+    border-width: 6px 0 0 0;
   }
   .open a#skip_links__nav:before,
   .open a#skip_links__nav:after {
-      border-width: 10px 0 0 0;
-      top:45%;
+      border-width: 6px 0 0 0;
+      top:46%;
       transform: rotate(45deg);
       height:0
   }
@@ -267,11 +290,11 @@ p#logo a:active {
   }
 
   nav {
-    min-height:100px;
+    min-height:60px;
     background-position-x: 20px
   }
   p#logo {
-    margin: 1em 0 0 1em;
+    margin-left: 1em;
   }
   .main-nav {
     position:absolute;
@@ -293,6 +316,9 @@ p#logo a:active {
   }
   .main-nav a {
     width: 100%;
+  }
+  .content {
+    font-size:1.25em;
   }
 }
 
