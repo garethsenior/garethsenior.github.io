@@ -290,7 +290,7 @@ Thanks m'lovely!
                     // resize the articles to be at least equal to the height of window
                     var els = d.getElementsByClassName('screen');
                     for (var i =0; i < els.length; i++) {
-                      els[i].setAttribute('css', 'min-height:'+(parseInt(window.innerHeight)*1.4)+'px;');
+                      els[i].setAttribute('style', 'min-height:'+(parseInt(window.innerHeight)*.75)+'px;');
                     }
                 }
                 article_resize();
