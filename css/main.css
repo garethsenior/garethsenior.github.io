@@ -246,14 +246,14 @@ p#logo a:active {
     text-indent: -9999em;
     top: auto;
     display: block;
-    width: 60px;
-    height: 60px;
+    width: 49px;
+    height: 49px;
     background: #fff;
     left: auto;
     top: 50%;
     z-index: 10000;
     right: 4%;
-    margin-top: -30px;
+    margin-top: -25px;
     color: #f00;
     border: 2px solid #333;
     border-radius: 20%;
@@ -270,17 +270,17 @@ p#logo a:active {
     z-index: 99;
   }
   a#skip_links__nav:before {
-    border-width: 6px 0;
+    border-width: 5px 0;
     height:15%;
     top:auto;
     bottom:20%;
   }
   a#skip_links__nav:after {
-    border-width: 6px 0 0 0;
+    border-width: 5px 0 0 0;
   }
   .open a#skip_links__nav:before,
   .open a#skip_links__nav:after {
-      border-width: 6px 0 0 0;
+      border-width: 5px 0 0 0;
       top:46%;
       transform: rotate(45deg);
       height:0
@@ -290,7 +290,7 @@ p#logo a:active {
   }
 
   nav {
-    min-height:60px;
+    min-height:40px;
     background-position-x: 20px
   }
   p#logo {
