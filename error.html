@@ -64,11 +64,13 @@
 
             /* NAVIGATION */
             $(document).ready(function() {
-                $('#skip_links__nav').click(function() {
+                $('#skip_links__nav').click(function(e) {
                   $('header').toggleClass('open');
+                  e.preventDefault();
                 });
-                $('.main-nav').click(function() {
+                $('.main-nav').click(function(e) {
                   $('header').removeClass('open');
+                  e.preventDefault();
                 });
             });
             /* ARTICLE RESIZE */
