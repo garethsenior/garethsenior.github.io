@@ -193,7 +193,7 @@ p#logo {
     background-repeat: no-repeat;
     z-index: 20;
     float: left;
-    margin: .66em 0;
+    margin: .66em 1em;
 }
 p#logo a:link, 
 p#logo a:visited, 

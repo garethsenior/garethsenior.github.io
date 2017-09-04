@@ -1,5 +1,21 @@
 <!doctype html>
 <html class="no-js" lang="en">
+<!--
+
+Hi! 
+Thanks for visiting my site and looking under the hood.
+This single page site was hand-crafted using no frameworks whatsoever.
+
+There's normalize cascading stylesheet courtesy of Nicolas Gallagher (http://nicolasgallagher.com/) 
+But, apart from that, everything was written from scratch - it was fun!
+
+If you have questions about the site, or a bug to report, I;d love to hear from you.
+Or, just write a bugfix and submit a merge requst via github.com
+See: https://github.com/garethsenior/garethsenior.github.io 
+
+Thanks m'lovely!
+
+-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -231,9 +247,6 @@
         </div>
 
 
-
-        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -243,42 +256,84 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-527902-3','auto');ga('send','pageview');
 
-            /* NAVIGATION */
-            $(document).ready(function() {
-                $('#skip_links__nav').click(function() {
-                  $('header').toggleClass('open');
-                });
-                $('.main-nav').click(function() {
-                  $('header').removeClass('open');
-                });
-                article_resize();
-                window.addEventListener('scroll', nav_adjust);
-                window.addEventListener('resize', article_resize);
-                nav_adjust();
-            });
+            window.addEventListener('load', function() {
+                var d = document;
+                var remove_class = function(el, cls) {
+                    if (!el) {return;}
+                    el.className = el.className.replace(cls, '').replace(/\s*$/g, "");
+                }
+                var add_class = function(el, cls) {
+                    if (!el) {return;}
+                    el.className += ' ' + cls;
+                }
+                var toggle_class = function(el, cls) {
+                    if (!el) {return;}
+                    if (el.className.indexOf(cls) == -1) { add_class(el, cls); }
+                    else { remove_class(el, cls); }
+                }
+                /* NAVIGATION */
+                var class_click = function(clicker, el, val) {
+                  var class_adjust = function() {
+                      toggle_class(el, val);
+                  }
+                  for (var i=0; i < clicker.length; i++) {
+                    clicker[i].addEventListener('click', class_adjust);
+                  }
+                }
+                var hdr = d.getElementsByClassName('header')[0];
+                class_click([d.getElementById('skip_links__nav')], hdr, 'open');
+                window.addEventListener('scroll', function() { remove_class(hdr, 'open'); });
 
-            // resize the articles to be equal to the height of device/window - whichever is greatest number
-            var article_resize = function() {
-                var h = Math.max(screen.height, window.innerHeight);
-                console.log(h)
-                $('article.screen').attr('css', 'height:'+(h*1.4)+'px;')
-            }
-            // onscroll figure out which article is in view and add a class of "up" to the relevant nav link
-            var nav_adjust = function() {
-                var view_top = window.pageYOffset;
-                var min_distance = null;
-                var curr_tag = "home";
-                $('article.screen').each(function() {
-                    var a = $(this);
-                    var dist = Math.abs((view_top - a.offset()['top']))
-                    if ((min_distance == null) || (dist < min_distance)) {
-                      curr_tag = a.attr('id');
-                      min_distance = dist;
+
+                /* ARTICLE RESIZE */
+                var article_resize = function() {
+                    // resize the articles to be at least equal to the height of window
+                    var els = d.getElementsByClassName('screen');
+                    for (var i =0; i < els.length; i++) {
+                      els[i].setAttribute('css', 'min-height:'+(parseInt(window.innerHeight)*1.4)+'px;');
                     }
-                });
-                $('nav#nav a.up').removeClass('up');
-                $('nav#nav a[href="#' + curr_tag + '"]').addClass('up');
-            }
+                }
+                article_resize();
+                window.addEventListener('resize', article_resize);
+
+                /* NAVIGATION UPSTATES */
+                var nav_adjust = function() {
+                    var view_top = window.pageYOffset;
+                    var min_distance = null;
+                    var curr_tag = "home";
+                    var screens = d.getElementsByClassName('screen');
+                    for (var i=0; i<screens.length; i++) {
+                        var a = screens[i];
+                        var dist = Math.abs(view_top - a.offsetTop)
+                        if ((min_distance == null) || (dist < min_distance)) {
+                          curr_tag = a.getAttribute('id');
+                          min_distance = dist;
+                        }
+                    };
+                    var get_tag = function(el) {
+                      return el.getAttribute('href').replace('#', '')
+                    }
+                    // get current upstate
+                    var curr = d.getElementsByClassName('up')[0];
+                    if ((!curr) || (get_tag(curr) != curr_tag)) {
+                      // undo last upstate
+                      toggle_class(curr, 'up');
+                      // apply new upstate
+                      var nav = d.getElementById('nav');
+                      var anchors = nav.getElementsByTagName('a');
+                      for (var i=0; i< anchors.length; i++) {
+                        var a = anchors[i];
+                        if (get_tag(a) == curr_tag) {
+                            toggle_class(a, 'up');
+                            break;
+                        }
+                      }
+                    }
+                };
+
+                nav_adjust();
+                window.addEventListener('scroll', nav_adjust);
+            });
         </script>
     </body>
 </html>
