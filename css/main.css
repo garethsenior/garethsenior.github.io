@@ -318,7 +318,8 @@ p#logo a:active {
     width: 100%;
   }
   .content {
-    font-size:1.25em;
+    font-size:1.2em;
+    overflow:hidden; /*long strings break things*/
   }
 }
 
