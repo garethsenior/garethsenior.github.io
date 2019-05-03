@@ -6,6 +6,16 @@ import sys
 readme = """
 	A Python script that can be used to upload a directory contents to a bucket in S3
 	Used for managing simple S3-hosted websites.
+
+	Usage:
+
+		python upload.py
+
+	This uploads all valid files (except those in the excluced directories specified in config)
+
+		python upload.py index.html error.html css/main.css
+
+	This only uploads the specified files
 """
 
 
@@ -77,15 +87,18 @@ if __name__ == "__main__":
 		aws_secret_access_key=cfg['aws_secret'],
 		region_name=cfg['region_name']
 	)
-
-	files = get_uploadable_files('.', cfg['excluded_dirs'])
+	files = sys.argv[1:] if len(sys.argv) > 1 else []
+	files = files or get_uploadable_files('.', cfg['excluded_dirs'], files)
 	if files:
 		print("Uploading files to: %s" % cfg['site_name'])
 	for f in files:
 		ct = get_content_type(f)
 		if ct:
 			print("Uploading file: %s" % f)
-			s3.upload_file(os.path.join(BASE_DIR, f), cfg['site_name'], f,  ExtraArgs={'ACL':'public-read', 'ContentType': ct})
+			try:
+				s3.upload_file(os.path.join(BASE_DIR, f), cfg['site_name'], f,  ExtraArgs={'ACL':'public-read', 'ContentType': ct})
+			except OSError:
+				print("ERROR! Could not find file to upload: %s" % f)
 		else:
 			print("Not uploading unknown file type: %s" % f)
 	print("Done!")
