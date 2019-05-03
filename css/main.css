@@ -240,7 +240,7 @@ p#logo a:active {
     color:#eee;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 856px) {
   a#skip_links__nav {
     position: absolute;
     text-indent: -9999em;
