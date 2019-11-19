@@ -88,7 +88,7 @@ if __name__ == "__main__":
 		region_name=cfg['region_name']
 	)
 	files = sys.argv[1:] if len(sys.argv) > 1 else []
-	files = files or get_uploadable_files('.', cfg['excluded_dirs'], files)
+	files = files or get_uploadable_files('.', cfg['excluded_dirs'])
 	if files:
 		print("Uploading files to: %s" % cfg['site_name'])
 	for f in files:
