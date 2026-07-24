@@ -25,12 +25,11 @@
             <p id="logo"><a href="#home"></a></p>
             <nav id="nav">
               <ul class="main-nav">
-                <li><a href="#home">Home</a>
-                <li><a href="#about-me">About Me</a>
-                <li><a href="#technical-skills">Skillset</a>
-                <li><a href="#work-history">Work History</a>
-                <li><a href="#links">Links</a>
-                <li><a href="#contact-me">Contact Me</a>
+                <li><a href="http://gareth53.co.uk/#home">Home</a>
+                <li><a href="http://gareth53.co.uk/#about-me">About Me</a>
+                <li><a href="http://gareth53.co.uk/#technical-skills">Skillset</a>
+                <li><a href="http://gareth53.co.uk/#work-history">Work History</a>
+                <li><a href="http://gareth53.co.uk/#contact-me">Contact Me</a>
               </ul>
             </nav>
           </header>
@@ -62,17 +61,6 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-527902-3','auto');ga('send','pageview');
 
-            /* NAVIGATION */
-            $(document).ready(function() {
-                $('#skip_links__nav').click(function(e) {
-                  $('header').toggleClass('open');
-                  e.preventDefault();
-                });
-                $('.main-nav').click(function(e) {
-                  $('header').removeClass('open');
-                  e.preventDefault();
-                });
-            });
             /* ARTICLE RESIZE */
             var article_resize = function() {
                 // resize the articles to be at least equal to the height of window
